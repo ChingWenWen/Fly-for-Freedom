@@ -38,6 +38,9 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
 
     Button btn;
 
+    String name="";
+    String speed="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,77 +56,53 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         pageview.add(view2);
         pageview.add(view3);
 
+
+        btn = findViewById(R.id.button);
+
         //viewPager下面的圓點，ViewGroup
         group = (ViewGroup) findViewById(R.id.viewGroup);
         tips = new ImageView[pageview.size()];
         for (int i = 0; i < pageview.size(); i++) {
             imageView = new ImageView(ChooseAirplaneActivity.this);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(25, 25));
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(30, 30));
             imageView.setPadding(20, 0, 20, 0);
             tips[i] = imageView;
-
-            btn = findViewById(R.id.button);
 
             //預設第一張圖顯示為選中狀態
             if (i == 0) {
                 tips[i].setBackgroundResource(R.drawable.bluepoint);
-                btn.setOnClickListener(new Button.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // 寫要做的事...
-                        Intent intent = new Intent();
-                        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("name","空中巴士A350");
-                        bundle.putInt("speed",912);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                    }
-                });
+                name = "空中巴士A350";
+                speed = "912";
             } else if (i == 1){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
-                btn.setOnClickListener(new Button.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // 寫要做的事...
-                        Intent intent = new Intent();
-                        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
-                        Bundle bundle = new Bundle();
-
-                        startActivity(intent);
-                    }
-                });
+                name = "波音747";
+                speed = "940";
             }else {
                 tips[i].setBackgroundResource(R.drawable.graypoint);
-                btn.setOnClickListener(new Button.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // 寫要做的事...
-                        Intent intent = new Intent();
-                        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
-                        Bundle bundle = new Bundle();
-
-                        startActivity(intent);
-                    }
-                });
+                name = "波音777";
+                speed = "989";
             }
-
-
-
-
-
-
 
             group.addView(tips[i]);
         }
+
         //這裡的mypagerAdapter是第三步定義好的。
         viewPager.setAdapter(new mypagerAdapter(pageview));
         //這裡的GuiPageChangeListener是第四步定義好的。
         viewPager.addOnPageChangeListener(new GuidePageChangeListener());
 
-
-
     }
+    public void a(View v) {
+        // 寫要做的事...
+        Intent intent = new Intent();
+        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("name",name);
+        bundle.putString("speed",speed);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
 
 
     class mypagerAdapter extends PagerAdapter {

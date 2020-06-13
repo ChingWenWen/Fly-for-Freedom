@@ -17,9 +17,14 @@ public class ResultActivity extends AppCompatActivity {
         getSupportActionBar().hide(); //隱藏標題列
         setContentView(R.layout.activity_result);
 
-        TextView p_name = findViewById(R.id.p_name);
-        TextView f_distance = findViewById(R.id.f_distance);
-        TextView duration = findViewById(R.id.duration);
+        TextView p_name = (TextView) findViewById(R.id.p_name);
+        TextView f_distance = (TextView)findViewById(R.id.f_distance);
+        TextView duration = (TextView)findViewById(R.id.duration);
+
+        String name = getIntent().getStringExtra("name");
+        p_name.setText(name);
+        String speed = getIntent().getStringExtra("speed");
+        f_distance.setText(speed);
 
 
     }
