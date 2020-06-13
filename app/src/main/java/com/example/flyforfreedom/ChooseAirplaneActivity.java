@@ -36,6 +36,8 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
     //圓點組的物件
     private ViewGroup group;
 
+    Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,14 +61,57 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
             imageView.setPadding(20, 0, 20, 0);
             tips[i] = imageView;
 
+            btn = findViewById(R.id.button);
+
             //預設第一張圖顯示為選中狀態
             if (i == 0) {
                 tips[i].setBackgroundResource(R.drawable.bluepoint);
+                btn.setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 寫要做的事...
+                        Intent intent = new Intent();
+                        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("name","空中巴士A350");
+                        bundle.putInt("speed",912);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
+                });
             } else if (i == 1){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
+                btn.setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 寫要做的事...
+                        Intent intent = new Intent();
+                        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
+                        Bundle bundle = new Bundle();
+
+                        startActivity(intent);
+                    }
+                });
             }else {
                 tips[i].setBackgroundResource(R.drawable.graypoint);
+                btn.setOnClickListener(new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 寫要做的事...
+                        Intent intent = new Intent();
+                        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
+                        Bundle bundle = new Bundle();
+
+                        startActivity(intent);
+                    }
+                });
             }
+
+
+
+
+
+
 
             group.addView(tips[i]);
         }
@@ -75,8 +120,16 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         //這裡的GuiPageChangeListener是第四步定義好的。
         viewPager.addOnPageChangeListener(new GuidePageChangeListener());
 
+
+
     }
 
+    private class Example implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            // 寫要做的事...
+        }
+    }
 
 
     class mypagerAdapter extends PagerAdapter {
