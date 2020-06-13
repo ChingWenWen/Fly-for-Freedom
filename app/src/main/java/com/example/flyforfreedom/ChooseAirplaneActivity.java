@@ -90,7 +90,7 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
     public void a(View v) {
         // 寫要做的事...
         Intent intent = new Intent();
-        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
+        intent.setClass(ChooseAirplaneActivity.this,MapsActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("name",name);
         bundle.putString("speed",speed);
