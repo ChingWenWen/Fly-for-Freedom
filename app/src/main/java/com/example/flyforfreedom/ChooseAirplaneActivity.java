@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -52,14 +55,16 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         tips = new ImageView[pageview.size()];
         for (int i = 0; i < pageview.size(); i++) {
             imageView = new ImageView(ChooseAirplaneActivity.this);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(20, 20));
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(25, 25));
             imageView.setPadding(20, 0, 20, 0);
             tips[i] = imageView;
 
             //預設第一張圖顯示為選中狀態
             if (i == 0) {
                 tips[i].setBackgroundResource(R.drawable.bluepoint);
-            } else {
+            } else if (i == 1){
+                tips[i].setBackgroundResource(R.drawable.graypoint);
+            }else {
                 tips[i].setBackgroundResource(R.drawable.graypoint);
             }
 
@@ -69,7 +74,10 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         viewPager.setAdapter(new mypagerAdapter(pageview));
         //這裡的GuiPageChangeListener是第四步定義好的。
         viewPager.addOnPageChangeListener(new GuidePageChangeListener());
+
     }
+
+
 
     class mypagerAdapter extends PagerAdapter {
         private ArrayList<View> pageview1;
