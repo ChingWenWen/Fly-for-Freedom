@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         go = findViewById(R.id.go);
     }
 
-    public void onClick(View v){
+    public void onClicktoChoose(View v){
         Intent intent = new Intent(this, ChooseAirplaneActivity.class);
         startActivity(intent);
     }

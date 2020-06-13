@@ -41,6 +41,7 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); //隱藏標題列
         setContentView(R.layout.activity_choose_airplane);
         //將view加進pageview中
         viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -122,13 +123,6 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
 
 
 
-    }
-
-    private class Example implements View.OnClickListener{
-        @Override
-        public void onClick(View v) {
-            // 寫要做的事...
-        }
     }
 
 
