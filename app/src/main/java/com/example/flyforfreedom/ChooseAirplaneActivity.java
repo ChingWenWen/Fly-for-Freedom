@@ -36,9 +36,16 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
     //圓點組的物件
     private ViewGroup group;
 
+    Button btn;
+
+    String name="空中巴士A350";
+    String speed="912";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); //隱藏標題列
         setContentView(R.layout.activity_choose_airplane);
         //將view加進pageview中
         viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -50,12 +57,15 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         pageview.add(view2);
         pageview.add(view3);
 
+
+        btn = findViewById(R.id.button);
+
         //viewPager下面的圓點，ViewGroup
         group = (ViewGroup) findViewById(R.id.viewGroup);
         tips = new ImageView[pageview.size()];
         for (int i = 0; i < pageview.size(); i++) {
             imageView = new ImageView(ChooseAirplaneActivity.this);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(25, 25));
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(30, 30));
             imageView.setPadding(20, 0, 20, 0);
             tips[i] = imageView;
 
@@ -64,17 +74,28 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
                 tips[i].setBackgroundResource(R.drawable.bluepoint);
             } else if (i == 1){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
-            }else {
+            }else if (i == 2){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
             }
 
             group.addView(tips[i]);
         }
+
         //這裡的mypagerAdapter是第三步定義好的。
         viewPager.setAdapter(new mypagerAdapter(pageview));
         //這裡的GuiPageChangeListener是第四步定義好的。
         viewPager.addOnPageChangeListener(new GuidePageChangeListener());
 
+    }
+    public void a(View v) {
+        // 寫要做的事...
+        Intent intent = new Intent();
+        intent.setClass(ChooseAirplaneActivity.this,ResultActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("name",name);
+        bundle.putString("speed",speed);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 
@@ -129,6 +150,15 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         //切換view時，下方圓點的變化。
         public void onPageSelected(int position) {
             tips[position].setBackgroundResource(R.drawable.bluepoint);
+            if (position == 1) {
+                name = "波音747";
+                speed = "940";
+            }else if (position == 2) {
+                name = "波音777";
+                speed = "989";
+            }
+
+            System.out.println("Pos"+position);
             //這個圖片就是選中的view的圓點
             for (int i = 0; i < pageview.size(); i++) {
                 if (position != i) {
