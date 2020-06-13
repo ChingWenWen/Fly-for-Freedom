@@ -13,6 +13,7 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); //隱藏標題列
         setContentView(R.layout.activity_result);
     }
 }
