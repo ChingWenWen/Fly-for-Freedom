@@ -191,6 +191,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
         Location.distanceBetween(startMarker.getPosition().latitude, startMarker.getPosition().longitude,endMarker.getPosition().latitude, endMarker.getPosition().longitude, result);
-        Toast.makeText(getApplicationContext(), " Toatal Distance : " + result[0]/1000, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), " Toatal Distance : " + result[0]/1000, Toast.LENGTH_SHORT).show();
+        String name = getIntent().getStringExtra("name");
+        String speed = getIntent().getStringExtra("speed");
+        Intent intent = new Intent();
+        intent.setClass(MapsActivity.this,ResultActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("name",name);
+        bundle.putString("speed",speed);
+        bundle.putString("distanceResult", result.toString());
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
