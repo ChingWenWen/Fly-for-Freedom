@@ -38,8 +38,9 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
 
     Button btn;
 
-    String name="";
-    String speed="";
+    String name="空中巴士A350";
+    String speed="912";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,16 +72,10 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
             //預設第一張圖顯示為選中狀態
             if (i == 0) {
                 tips[i].setBackgroundResource(R.drawable.bluepoint);
-                name = "空中巴士A350";
-                speed = "912";
             } else if (i == 1){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
-                name = "波音747";
-                speed = "940";
-            }else {
+            }else if (i == 2){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
-                name = "波音777";
-                speed = "989";
             }
 
             group.addView(tips[i]);
@@ -155,6 +150,15 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         //切換view時，下方圓點的變化。
         public void onPageSelected(int position) {
             tips[position].setBackgroundResource(R.drawable.bluepoint);
+            if (position == 1) {
+                name = "波音747";
+                speed = "940";
+            }else if (position == 2) {
+                name = "波音777";
+                speed = "989";
+            }
+
+            System.out.println("Pos"+position);
             //這個圖片就是選中的view的圓點
             for (int i = 0; i < pageview.size(); i++) {
                 if (position != i) {
