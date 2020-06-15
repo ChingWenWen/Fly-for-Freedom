@@ -10,8 +10,17 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+
     </androidx.viewpager.widget.ViewPager>
 
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-50dp"
+        app:srcCompat="@drawable/wave" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +39,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/next"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
@@ -38,9 +47,10 @@
             android:background="@color/colorPrimary"
             android:onClick="a"
             android:text="下一步"
-            android:textColor="@color/colorAccent"
+            android:textColor="#ffffff"
             android:textSize="20sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
 </RelativeLayout>
