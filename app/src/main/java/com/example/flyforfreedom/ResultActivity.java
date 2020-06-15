@@ -23,8 +23,11 @@ public class ResultActivity extends AppCompatActivity {
 
         String name = getIntent().getStringExtra("name");
         p_name.setText(name);
-        String speed = getIntent().getStringExtra("speed");
-        f_distance.setText(speed);
+        int speed = Integer.parseInt(getIntent().getStringExtra("speed"));
+        int distance = Integer.parseInt(getIntent().getStringExtra("distanceResult"));
+        f_distance.setText(String.valueOf(distance));
+        int km_h = distance/speed;
+        duration.setText(String.valueOf(km_h));
 
 
     }
