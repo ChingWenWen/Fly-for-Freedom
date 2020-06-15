@@ -12,9 +12,9 @@
         android:layout_width="144dp"
         android:layout_height="47dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginBottom="92dp"
         android:background="@color/colorPrimary"
         android:onClick="onClicktoChoose"
         android:text="回主頁"
@@ -22,22 +22,25 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/arrived"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="97dp"
         android:layout_marginLeft="97dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="97dp"
         android:layout_marginRight="97dp"
-        android:background="#ffffff"
+        android:background="@drawable/btn_circle"
         android:gravity="center"
-        android:padding="10dp"
-        android:text="已抵達目的地"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:text="已抵達"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,13 +62,9 @@
 
     <LinearLayout
         android:id="@+id/contest"
-        android:layout_width="329dp"
-        android:layout_height="172dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
+        android:layout_width="313dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="24dp"
         android:background="#fff"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="機種："
+                android:text="    機    種："
                 android:textSize="24sp" />
 
             <TextView
@@ -142,5 +141,27 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="283dp"
+        android:layout_height="244dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginLeft="172dp"
+        android:layout_marginBottom="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/airplantlogo" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="125dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cloud" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
