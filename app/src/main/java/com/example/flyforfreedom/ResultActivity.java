@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,11 +24,13 @@ public class ResultActivity extends AppCompatActivity {
 
         String name = getIntent().getStringExtra("name");
         p_name.setText(name);
-        int speed = Integer.parseInt(getIntent().getStringExtra("speed"));
-//        int distance = Integer.parseInt(getIntent().getStringExtra("distanceResult"));
-//        f_distance.setText(String.valueOf(distance));
-//        int km_h = distance/speed;
-//        duration.setText(String.valueOf(km_h));
+        float speed = Float.parseFloat(getIntent().getStringExtra("speed"));
+        float distance = Float.parseFloat(getIntent().getStringExtra("distanceResult"));
+        f_distance.setText(String.format("%.2f", distance) + " km");
+        float km_h = distance/speed;
+        duration.setText(String.format("%.2f", km_h) + " hour");
+
+        Log.d("Result:", speed + " " + distance + " " + km_h);
 
 
     }

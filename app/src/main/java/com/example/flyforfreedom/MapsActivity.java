@@ -186,6 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
             @Override
+
             public void onCancel() {
                 Log.d("Action", "Animation interruted");
             }
@@ -199,8 +200,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Bundle bundle = new Bundle();
         bundle.putString("name",name);
         bundle.putString("speed",speed);
-        bundle.putString("distanceResult", result.toString());
+        bundle.putString("distanceResult", String.valueOf(result[0]/1000));
         intent.putExtras(bundle);
+
         startActivity(intent);
     }
 }
