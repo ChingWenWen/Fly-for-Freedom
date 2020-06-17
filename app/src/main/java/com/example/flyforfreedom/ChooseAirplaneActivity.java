@@ -23,6 +23,8 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
     private View view1;
     private View view2;
     private View view3;
+    private View view4;
+    private View view5;
 
     //用來存放view並傳遞給viewPager的介面卡。
     private ArrayList<View> pageview;
@@ -52,10 +54,14 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         view1 = getLayoutInflater().inflate(R.layout.view1, null);
         view2 = getLayoutInflater().inflate(R.layout.view2, null);
         view3 = getLayoutInflater().inflate(R.layout.view3, null);
+        view4 = getLayoutInflater().inflate(R.layout.view4, null);
+        view5 = getLayoutInflater().inflate(R.layout.view5, null);
         pageview = new ArrayList<View>();
         pageview.add(view1);
         pageview.add(view2);
         pageview.add(view3);
+        pageview.add(view4);
+        pageview.add(view5);
 
 
         btn = findViewById(R.id.button);
@@ -75,6 +81,10 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
             } else if (i == 1){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
             }else if (i == 2){
+                tips[i].setBackgroundResource(R.drawable.graypoint);
+            }else if (i == 3){
+                tips[i].setBackgroundResource(R.drawable.graypoint);
+            }else if (i == 4){
                 tips[i].setBackgroundResource(R.drawable.graypoint);
             }
 
@@ -156,6 +166,12 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
             }else if (position == 2) {
                 name = "波音777";
                 speed = "989";
+            }else if (position == 3){
+                name = "直升機AC311";
+                speed = "242";
+            }else if (position == 4){
+                name = "UFO";
+                speed = "0";
             }
 
             System.out.println("Pos"+position);
