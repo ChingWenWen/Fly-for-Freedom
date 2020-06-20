@@ -97,7 +97,7 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new GuidePageChangeListener());
 
     }
-    public void a(View v) {
+    public void intent(View v) {
         // 寫要做的事...
         Intent intent = new Intent();
         intent.setClass(ChooseAirplaneActivity.this,MapsActivity.class);
