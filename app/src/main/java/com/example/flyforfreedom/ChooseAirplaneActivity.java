@@ -160,7 +160,11 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         //切換view時，下方圓點的變化。
         public void onPageSelected(int position) {
             tips[position].setBackgroundResource(R.drawable.bluepoint);
-            if (position == 1) {
+            if (position == 0){
+                name="空中巴士A350";
+                speed="912";
+            }
+            else if (position == 1) {
                 name = "波音747";
                 speed = "940";
             }else if (position == 2) {
