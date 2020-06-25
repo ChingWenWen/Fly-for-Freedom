@@ -27,11 +27,11 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
     private View view5;
 
     //用來存放view並傳遞給viewPager的介面卡。
-    private ArrayList<View> pageview;
+    private static ArrayList<View> pageview;
 
 
     //用來存放圓點，沒有寫第四步的話，就不要定義一下三個變量了。
-    private ImageView[] tips = new ImageView[3];
+    private static ImageView[] tips = new ImageView[3];
 
     private ImageView imageView;
 
@@ -40,8 +40,8 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
 
     Button btn;
 
-    String name="空中巴士A350";
-    String speed="912";
+    static String name="空中巴士A350";
+    static String speed="912";
 
 
     @Override
@@ -97,6 +97,14 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new GuidePageChangeListener());
 
     }
+    public static String getName(){
+        return name;
+    }
+    public static String getSpeed(){
+        return speed;
+    }
+
+
     public void intent(View v) {
         // 寫要做的事...
         Intent intent = new Intent();
@@ -107,6 +115,7 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
 
 
 
@@ -144,7 +153,10 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
 
     }
 
-    class GuidePageChangeListener implements ViewPager.OnPageChangeListener {
+
+    static class GuidePageChangeListener implements ViewPager.OnPageChangeListener, com.example.flyforfreedom.GuidePageChangeListener {
+
+
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -155,11 +167,7 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
 
         }
 
-
-        @Override
-        //切換view時，下方圓點的變化。
-        public void onPageSelected(int position) {
-            tips[position].setBackgroundResource(R.drawable.bluepoint);
+        public static void pageSelect(int position){
             if (position == 0){
                 name="空中巴士A350";
                 speed="912";
@@ -177,6 +185,12 @@ public class ChooseAirplaneActivity extends AppCompatActivity {
                 name = "UFO";
                 speed = "0";
             }
+        }
+        @Override
+        //切換view時，下方圓點的變化。
+        public  void onPageSelected(int position) {
+            tips[position].setBackgroundResource(R.drawable.bluepoint);
+            pageSelect(position);
 
             System.out.println("Pos"+position);
             //這個圖片就是選中的view的圓點

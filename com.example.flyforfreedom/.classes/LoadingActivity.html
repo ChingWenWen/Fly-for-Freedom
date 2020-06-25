@@ -1,0 +1,134 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LoadingActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.flyforfreedom</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LoadingActivity (com.example.flyforfreedom)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LoadingActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">LoadingActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 10)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.flyforfreedom;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import android.content.Intent;
+<i>6</i>&nbsp;import android.os.Bundle;
+<i>7</i>&nbsp;import android.os.Handler;
+<i>8</i>&nbsp;
+<b class="nc"><i>9</i>&nbsp;public class LoadingActivity extends AppCompatActivity {</b>
+<b class="nc"><i>10</i>&nbsp;    private static int SPLASH_TIME_OUT = 2000;</b>
+<i>11</i>&nbsp;    @Override
+<i>12</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>13</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>14</i>&nbsp;        getSupportActionBar().hide(); //¡Ù¬√º–√D¶C</b>
+<b class="nc"><i>15</i>&nbsp;        setContentView(R.layout.activity_loading);</b>
+<b class="nc"><i>16</i>&nbsp;        new Handler().postDelayed(new Runnable() {</b>
+<i>17</i>&nbsp;            @Override
+<i>18</i>&nbsp;            public void run() {
+<b class="nc"><i>19</i>&nbsp;                Intent mainIntent = new Intent(LoadingActivity.this, MainActivity.class);</b>
+<b class="nc"><i>20</i>&nbsp;                startActivity(mainIntent);</b>
+<b class="nc"><i>21</i>&nbsp;                finish();</b>
+<i>22</i>&nbsp;            }
+<i>23</i>&nbsp;        },SPLASH_TIME_OUT);
+<i>24</i>&nbsp;    }
+<i>25</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-25 16:10</div>
+</div>
+</body>
+</html>
