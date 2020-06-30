@@ -34,8 +34,8 @@ public class ResultActivity extends AppCompatActivity {
 
 
     }
-    public void onClicktoChoose(View v){
-        Intent intent = new Intent(this, ChooseAirplaneActivity.class);
+    public void onClicktoCount(View v){
+        Intent intent = new Intent(this, detail.class);
         startActivity(intent);
     }
 }

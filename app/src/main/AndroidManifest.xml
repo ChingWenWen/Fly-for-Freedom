@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".detail"></activity>
         <activity android:name=".LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,10 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".ResultActivity">
-
-        </activity>
-
+        <activity android:name=".ResultActivity"></activity>
         <activity android:name=".ChooseAirplaneActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -32,9 +30,7 @@
         -->
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-
-        </activity>
+            android:label="@string/title_activity_maps"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
