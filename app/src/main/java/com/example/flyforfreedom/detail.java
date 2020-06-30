@@ -43,7 +43,7 @@ public class detail extends AppCompatActivity {
 
         txv.setText(Integer.toString(money));
     }
-    public int total(int p_sum,int money,int vip){
+    public static int total(int p_sum, int money, int vip){
 
         if ((p_sum %2)==1){
             money = (int)(money*0.9)*p_sum;
